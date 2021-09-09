@@ -1,0 +1,8 @@
+sales_train = pd.read_csv('\C:\Users\gilad\Downloads\future_prices/sales_train.csv')
+items = pd.read_csv('\C:\Users\gilad\Downloads\future_prices/items.csv')
+item_categories = pd.read_csv('\C:\Users\gilad\Downloads\future_prices/item_categories.csv')
+shops = pd.read_csv('\C:\Users\gilad\Downloads\future_prices/shops.csv')
+
+new = pd.merge(sales_train, items, how="left", on="item_id")
+new2 = pd.merge(new, item_categories, how="left", on="item_category_id")
+new3 = pd.merge(new2, shops, how="left", on='shop_id')
